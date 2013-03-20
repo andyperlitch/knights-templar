@@ -1,0 +1,29 @@
+{
+  "name": "knights-templar",
+  "version": "0.0.1",
+  "dependencies": {
+    "handlebars": "",
+    "underscore": ""
+  },
+  "devDependencies": {
+      "jasmine-node":""
+  }
+  "description": "Precompile templates with browserify, or simply compile templates if in node environment",
+  "main": "bland-compile.js",
+  "scripts": {
+    "test": "jasmine-node specs/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andyperlitch/knights-templar"
+  },
+  "keywords": [
+    "compile",
+    "templates",
+    "handlebars",
+    "underscore",
+    "browserify"
+  ],
+  "author": "andy perlitch",
+  "license": "BSD"
+}
