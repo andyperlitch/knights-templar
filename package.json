@@ -7,9 +7,9 @@
   },
   "devDependencies": {
       "jasmine-node":""
-  }
+  },
   "description": "Precompile templates with browserify, or simply compile templates if in node environment",
-  "main": "bland-compile.js",
+  "main": "knights-templar.js",
   "scripts": {
     "test": "jasmine-node specs/"
   },
