@@ -4,7 +4,10 @@ var handlebars = require('handlebars');
 var _ = require('underscore');
 
 // Main make method
-function make(type, path) {
+function make(path, type) {
+    
+    // Default type
+    type = type || 'hbs'
     
     // Check file existence
     if (! fs.existsSync(path) ) throw new Error("Template file could not be found. Given path: `"+path+"`. cwd: `"+process.cwd()+"`.");
