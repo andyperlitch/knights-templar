@@ -6,12 +6,12 @@
     "underscore": ""
   },
   "devDependencies": {
-      "jasmine-node":""
+      "mocha":""
   },
   "description": "Precompile templates with browserify, or simply compile templates if in node environment",
   "main": "knights-templar.js",
   "scripts": {
-    "test": "jasmine-node specs/"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
