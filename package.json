@@ -1,12 +1,12 @@
 {
   "name": "knights-templar",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "dependencies": {
     "handlebars": "",
     "underscore": ""
   },
   "devDependencies": {
-      "mocha":""
+    "mocha": ""
   },
   "description": "Precompile templates with browserify, or simply compile templates if in node environment",
   "main": "knights-templar.js",
