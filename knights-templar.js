@@ -7,7 +7,7 @@ var _ = require('underscore');
 function getFileContents(path) {
     // check for browser
     if (typeof window !== 'undefined') {
-        // make asynchronous XHR
+        // make synchronous XHR
         var xhr = new XMLHttpRequest();
         xhr.open('get', (window.KT_BASE_URL || '/') + path, false);
         var res = xhr.send();

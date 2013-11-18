@@ -14,8 +14,21 @@ compile ye javascript templates from doth external files in node.js.
 compiles content from a file located at `path` into a template function specified by `type` (defaults to Handlebars).
 
 ##types
+
 - **'hbs'** - Handlebars
 - **'_'** - Underscore templates (erb-style)
+
+##use in the browser with browserify
+
+To use this in the browser via browserify, set a global variable `KT_BASE_URL` which will be the prefix for all templates, and should contain `https://`
+
+	var kt = require('knights-templar');
+
+	var template = kt.make(__dirname+'/some_template.html', '_');
+
+	var html = template({ name: 'andy' });
+
+	$('body').append(html);
 
 
 ##license
