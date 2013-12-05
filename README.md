@@ -2,6 +2,8 @@ knights-templar
 ==========
 compile ye javascript templates from doth external files in node.js.
 
+[![Build Status](https://travis-ci.org/andyperlitch/knights-templar.png)](https://travis-ci.org/andyperlitch/knights-templar)
+
 ##usage
 
     var kt = require('knights-templar');
