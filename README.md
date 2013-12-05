@@ -1,42 +1,42 @@
 knights-templar
 ==========
-compile ye javascript templates from doth external files in node.js.
 
 [![Build Status](https://travis-ci.org/andyperlitch/knights-templar.png)](https://travis-ci.org/andyperlitch/knights-templar)
 
-##usage
+compile ye underscore templates from doth external files in node.js (or browserify).
+
+## usage
 
     var kt = require('knights-templar');
-    var template = kt.make(__dirname+'/template.html', 'hbs');
+    var template = kt.make(__dirname+'/template.html');
     var markup = template({ name: 'andy', age: 24 });
 
-##methods
+## methods
 
-###kt.make(path,[type])
-compiles content from a file located at `path` into a template function specified by `type` (defaults to Handlebars).
+### kt.make(path)
 
-##types
+Compiles content from a file located at `path` into an underscore template function.
 
-- **'hbs'** - Handlebars
-- **'_'** - Underscore templates (erb-style)
+### kt.registerPrecompiled(precompiled_map)
 
-##use in the browser with browserify
+You can use precompiled templates by registering them with this method at the beginning of your node.js or browserify app.
+The format of `precompiled_map` should be an object where keys are the path to a template file (e.g. an html file) and 
+values are either the content of the template or a compiled template function. For example:
 
-To use this in the browser via browserify, set a global variable `KT_BASE_URL` which will be the prefix for all templates, and should contain `https://`
-	
-Somewhere in the html:
+	var precomp = {
+		// if its the template string, compilation will happen at run-time
+		'/path/to/some/template.html': '<div> <%= variable %> </div>'
 
-	<script> window.KT_BASE_URL = 'http://localhost:9999/public'; </script>
+		// this way, everything is precompiled
+		'/path/to/another/template.html': function(obj){
+			// precompiled gobble-dee-gook
+		}
+	}
 
-then...
-
-	var kt = require('knights-templar');
-
-	var template = kt.make(__dirname+'/some_template.html', '_');
-
-	var html = template({ name: 'andy' });
-
-	$('body').append(html);
+	var knight = require("knights-templar");
+	knight.registerPrecompiled(precomp);
+	var template = knight.make('/path/to/some/template.html'); // will use the one from precomp
+	template({variable: 'interpolate me!'});
 
 ##license
 MIT

@@ -1,3 +1,4 @@
+var _ = require('underscore');
 var assert = require('assert');
 describe("A template-generating knight templar", function() {
     
@@ -39,6 +40,15 @@ describe("A template-generating knight templar", function() {
         var path = __dirname + "/underscore.html";
         var precomp = {};
         precomp[path] = '<span><%= name %></span>';
+        knight.registerPrecompiled(precomp);
+        var template = knight.make(path, '_');
+        assert.equal(template({ name: "test" }), '<span>test</span>');
+    });
+
+    it('precompiled template object should be able to be html or precompiled function', function() {
+        var path = __dirname + "/underscore.html";
+        var precomp = {};
+        precomp[path] = _.template('<span><%= name %></span>');
         knight.registerPrecompiled(precomp);
         var template = knight.make(path, '_');
         assert.equal(template({ name: "test" }), '<span>test</span>');

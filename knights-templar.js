@@ -27,7 +27,9 @@ function getFileContents(path) {
     }
 }
 
-// Registers precompiled templates object
+// Registers precompiled templates object.
+// This can be a map of path:template_strings
+// or path:template_function.
 function registerPrecompiled(precomp) {
     precompiled = precomp;
 }
@@ -38,6 +40,11 @@ function make(path, type) {
     // Read the file
     var file_contents = getFileContents(path);
     
+    // Return functions
+    if (typeof file_contents === 'function') {
+        return file_contents;
+    }
+
     // Return the compiled template        
     return _.template(file_contents);
 }
