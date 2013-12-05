@@ -11,7 +11,7 @@
   "description": "Precompile templates with browserify, or simply compile templates if in node environment",
   "main": "knights-templar.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test/knight.spec.js"
   },
   "repository": {
     "type": "git",

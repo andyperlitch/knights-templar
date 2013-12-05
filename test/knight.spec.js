@@ -3,8 +3,8 @@ describe("A template-generating knight templar", function() {
     
     var knight = require("../knights-templar");
     
-    it("should compile handlebar templates by default", function() {
-        var path = __dirname + "/handlebars.html";
+    it("should compile underscore templates by default", function() {
+        var path = __dirname + "/underscore.html";
         var template = knight.make(path);
         assert.equal(template({ name:"test" }),'<p>test</p>');
     });
@@ -33,6 +33,15 @@ describe("A template-generating knight templar", function() {
             knight.make(__dirname+'/notafile')
         }
         assert.throws(badCall);
+    });
+
+    it('should look in precompiled templates object first for content', function() {
+        var path = __dirname + "/underscore.html";
+        var precomp = {};
+        precomp[path] = '<span><%= name %></span>';
+        knight.registerPrecompiled(precomp);
+        var template = knight.make(path, '_');
+        assert.equal(template({ name: "test" }), '<span>test</span>');
     });
     
 })

@@ -21,6 +21,12 @@ compiles content from a file located at `path` into a template function specifie
 ##use in the browser with browserify
 
 To use this in the browser via browserify, set a global variable `KT_BASE_URL` which will be the prefix for all templates, and should contain `https://`
+	
+Somewhere in the html:
+
+	<script> window.KT_BASE_URL = 'http://localhost:9999/public'; </script>
+
+then...
 
 	var kt = require('knights-templar');
 
@@ -29,7 +35,6 @@ To use this in the browser via browserify, set a global variable `KT_BASE_URL` w
 	var html = template({ name: 'andy' });
 
 	$('body').append(html);
-
 
 ##license
 MIT
